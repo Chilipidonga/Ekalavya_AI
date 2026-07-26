@@ -29,7 +29,7 @@ async def generate_lesson(request: GenerateRequest):
     try:
         logger.info(f"Starting Generation Pipeline | Grade: {request.grade} | Topic: '{request.topic}'")
         
-        initial_draft = generator.generate(grade=request.grade, topic=request.topic)
+        initial_draft = generator.generate(grade=12, topic=request.topic)
         
         review_result = reviewer.review(grade=request.grade, generator_output=initial_draft)
         status = review_result.get("status")
